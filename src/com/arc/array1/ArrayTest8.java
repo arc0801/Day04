@@ -8,26 +8,30 @@ public class ArrayTest8 {
 		Scanner sc = new Scanner(System.in);
 		int [] numbers = {1,2,3,4,5};
 
-		int [] numbers2 = null;
-		numbers2 = new int [4];
-		
-		
 		System.out.println("1~5 사이의 값을 입력하세요.");
 		int n = sc.nextInt();
-		
-		for(int i=0;i<numbers.length;i++) {
-			if(n==numbers[i]) {
-				
+		int index = 0;
+		for(index=0;index<numbers.length;index++) {
+			if(n==numbers[index]) {
+				break;
 			}
-			numbers [i] = numbers2 [i];
-			break;
 		}//for
 
-		 
+		int [] numbers2 = new int [4];
+		int idx = 0; //numbers2의 index
+
+		for(int i=0;i<numbers.length;i++) {
+			if(index==i) {
+				continue;
+			}
+			numbers2[idx]=numbers[i];
+			idx++;
+		}
+
+		numbers=numbers2;
+
 		for(int i=0;i<numbers.length;i++) {
 			System.out.println(numbers[i]);
 		}
-
-
 	}//main
 }
